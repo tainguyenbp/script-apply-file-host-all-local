@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+#------------------------------------------------------------------#
+#---------------------- LINUX VIRTUAL SERVER --------------------------#
+#------------------------------------------------------------------#
+
+######################## Client Test ###########################
+192.168.115.94     cc-test-lab1
+192.168.115.166    cc-test-lab2
