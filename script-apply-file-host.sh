@@ -1,18 +1,35 @@
 #!/bin/bash
 
+# Setup tool sshpass via yum internet
+
+function check_setup_sshpass() {
+
+	value_sshpass=`rpm -qa | grep sshpass | wc -l`
+
+	if [ "$value_sshpass" == 0 ]
+		then
+			echo "Installing tool sshpass via yum internet cmd: yum -y install sshpass"
+			yum -y install sshpass
+			echo "Done !!!"
+	else
+		echo "Tool sshpass installed"
+		echo "Done !!!"
+	fi
+}
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "$CURRENT_DIR"
 
 PATH_FILE_HOSTS="$CURRENT_DIR/hosts"
 PATH_FILE_SERVER="$CURRENT_DIR/server-virtual-linux.csv"
 
-check_file_and_run_script(){
+function check_file_and_run_script() {
 	
 	if [ -f "$PATH_FILE_HOSTS" ] && [ -f "$PATH_FILE_SERVER" ]
 		then
 			echo "File $PATH_FILE_HOSTS found !!!"
 			echo "File $PATH_FILE_SERVER found !!!"
-		while IFS=',' read -r ip_host username password port description
+		 while IFS=',' read -r ip_host username password port description i line 
 			do
 				echo "Ip host : $ip_host"
 				echo "Username : $username"
@@ -41,5 +58,6 @@ check_file_and_run_script(){
 	fi
 
 }
-
+check_setup_sshpass
 check_file_and_run_script
+
