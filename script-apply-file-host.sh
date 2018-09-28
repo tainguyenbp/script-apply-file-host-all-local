@@ -26,7 +26,7 @@ PATH_FILE_SERVER="$CURRENT_DIR/server-virtual-linux.csv"
 function delete_line_empty_file_csv(){
 
 		sed -i /^$/d "$PATH_FILE_SERVER"
-	
+
 }
 
 function check_file_and_run_script() {
@@ -48,7 +48,7 @@ function check_file_and_run_script() {
 						echo "Port ssh : $port"
 						echo "Description : $description"
 			
-					#	sshpass -p"$password" scp -r -P"$port" -o StrictHostKeyChecking=no "$PATH_FILE_HOSTS" "$username"@"$ip_host":/etc/
+						sshpass -p"$password" scp -r -P"$port" -o StrictHostKeyChecking=no "$PATH_FILE_HOSTS" "$username"@"$ip_host":/etc/
 	
 						echo "============================== Done Virtual ===================================================================="	
 				fi
